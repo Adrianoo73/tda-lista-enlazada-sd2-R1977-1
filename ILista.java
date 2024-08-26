@@ -13,3 +13,5 @@ public interface ILista {
 
     boolean estaVacia();
 }
+
+

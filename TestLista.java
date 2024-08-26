@@ -1,16 +1,8 @@
 public class TestLista {
     public static void main(String[] args) {
-        // prueba del tda lista
+        // se crea la lista
         Lista listaNumeros = new Lista();
-        listaNumeros.insertarElemento(5);
-        listaNumeros.insertarElemento(7);
-        listaNumeros.insertarElemento(21);
-        listaNumeros.insertarElemento(10);
-        listaNumeros.insertarElemento(14);
-        listaNumeros.insertarElemento(11);
-        listaNumeros.insertarElemento(17);
-        listaNumeros.insertarElemento(30);
-        listaNumeros.insertarElemento(7);
+
         // boolean estaVacia = listaNumeros.estaVacia();
         // System.out.println(estaVacia);
         // String listaString = listaNumeros.toString();
@@ -18,7 +10,22 @@ public class TestLista {
 
         // clase en la que se programo el metodo recorrer lista
         // prbando metodo recorrido :)
-        String recorridoString = listaNumeros.recorrerLista();
-        System.out.println(recorridoString);
+
+        // para insertar elementos
+        listaNumeros.insertarElemento(4);
+        listaNumeros.insertarElemento(5);
+        listaNumeros.insertarElemento(1);
+        listaNumeros.insertarElemento(9);
+
+        // Recorrer e imprimir la lista después de insertar elementos
+        System.out.println("La lista es: " + listaNumeros.recorrerLista());
+
+        // para buscar elementos
+        System.out.println(listaNumeros.seEncuentraElemento(1));
+        System.out.println(listaNumeros.seEncuentraElemento(1));
+
+        // para buscar un nodo en la lista
+        Nodo nodo = listaNumeros.buscarElemento(5);
+        System.out.println("Nodo encontrado: " + (nodo != null ? nodo : "No encontrado"));
     }
 }

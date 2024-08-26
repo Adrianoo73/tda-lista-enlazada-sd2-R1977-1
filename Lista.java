@@ -24,7 +24,14 @@ public class Lista implements ILista {
 
     @Override
     public Nodo buscarElemento(Object elementoaBuscar) {
-        return null;
+        Nodo temp = cabeza;
+        while (temp != null) { 
+            if (temp.getDato().equals(elementoaBuscar)) { 
+                return temp; 
+            }
+            temp = temp.getEnlace(); 
+        }
+        return null; 
     }
 
     @Override
@@ -48,10 +55,14 @@ public class Lista implements ILista {
 
     @Override
     public void insertarElemento(Object elementoaInsertar) {
-        Nodo nuevoNodo = new Nodo(); // se crea un nodo vacio
-        nuevoNodo.setDato(elementoaInsertar); // se agrega el dato al nuevo nodo
-        nuevoNodo.setEnlace(cabeza); // el enlace del nuevo nodo es la cabeza
-        cabeza = nuevoNodo; // la cabeza es el nuevo nodo
+        if (elementoaInsertar instanceof Number) {
+            Nodo nuevoNodo = new Nodo(); 
+            nuevoNodo.setDato(elementoaInsertar);
+            nuevoNodo.setEnlace(cabeza); 
+            cabeza = nuevoNodo; 
+        } else {
+            System.out.println("Error: Solo se pueden insertar números (enteros o decimales).");
+        }
     }
 
     @Override
@@ -72,7 +83,16 @@ public class Lista implements ILista {
     // practica en clase
     @Override
     public boolean seEncuentraElemento(Object elementoaEncontrar) {
-        return false;
+        Nodo temp = cabeza;
+        while (temp != null) { // Recorre la lista desde la cabeza hasta que llegue al final
+            if (temp.getDato().equals(elementoaEncontrar)) { 
+                                                            
+                return true; 
+            }
+            temp = temp.getEnlace();
+        }
+        return false; 
     }
 
 }
+
